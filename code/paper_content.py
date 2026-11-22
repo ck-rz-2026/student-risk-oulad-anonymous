@@ -620,12 +620,15 @@ def build(F):
         "LightGBM", "Equalised TPR", "73.2", "80.8", "47.6", "2.1", "2.3"], [
         "Spline-GAM", "Global cut 0.5", "72.4", "80.7", "47.1", "10.5", "8.4"], [
         "Spline-GAM", "Equalised FPR", "72.2", "80.7", "47.0", "2.6", "1.7"], [
-        "Spline-GAM", "Equalised TPR", "72.5", "80.5", "47.3", "2.5", "2.7"]],
-        fmt("<b>Table V.</b> Cost of fairness at week four (percent; gaps in percentage points "
-        "between disability levels). Thresholds tuned on a held-out half of learners, five "
+        "Spline-GAM", "Equalised TPR", "72.5", "80.5", "47.3", "2.5", "2.7"], [
+        "LGBM, IMD", "Global cut 0.5", "73.3", "80.8", "47.6", "26.1", "27.4"], [
+        "LGBM, IMD", "Equalised FPR", "72.8", "80.6", "47.5", "5.8", "8.9"]],
+        fmt("<b>Table V.</b> Cost of fairness at week four (percent; gaps in percentage points, "
+        "the first six rows between disability levels, the last two across deprivation bands). "
+        "Thresholds tuned on a held-out half of learners, five "
         "repeated splits; the untouched pooled estimate is {fpr_gap} points for LightGBM "
-        "(Section&#160;V-E) against {fpr_gap_base} here.", F), [0.56 * 72, 0.92 * 72, 0.36 * 72, 0.36 * 72, 0.34 * 72,
-                            0.44 * 72, 0.44 * 72], 6.9))
+        "(Section&#160;V-E) against {fpr_gap_base} here.", F), [0.76 * 72, 0.94 * 72, 0.34 * 72, 0.34 * 72, 0.32 * 72,
+                            0.36 * 72, 0.36 * 72], 6.9))
     add(("p", fmt(
         "Two limits keep this from being a solution. First, a threshold can only re-allocate "
         "errors that the score already separates; where a subgroup is small and its scores sit "
@@ -639,7 +642,8 @@ def build(F):
         "and stops there leaves practitioners with no legal move; we do not claim that the "
         "mechanics settle the policy question.", F)))
     add(("p", fmt(
-        "The largest disparity in the audit is neither of those. Across deprivation bands the "
+        "The largest disparity in the audit is neither of those (Table&#160;V, last two rows). "
+        "Across deprivation bands the "
         "false-positive gap at 0.5 is {imd_gap_base} points, more than twice the disability gap, "
         "and equalising disability leaves it at {imd_gap_after_dis}: a rule tuned on one "
         "attribute does nothing for another. Equalising on deprivation itself does move it, "

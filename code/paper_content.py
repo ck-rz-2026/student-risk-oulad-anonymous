@@ -847,7 +847,9 @@ def build(F):
 
     add(("h2", "D. Reproducibility and AI-use Disclosure"))
     add(("p", fmt(
-        "Every number here comes from scripts released with this submission: feature construction, "
+        "Every number here comes from the scripts and stored results, public at "
+        "<font size=\"7\">anonymous.4open.science/r/student-risk-oulad-anonymous-FC0C</font>: "
+        "feature construction, "
         "grouped cross-validation, the sweep, the ablation, transfer, fairness, the explanation "
         "diagnostics and the sensitivity analyses. Splits are seeded and learners are grouped "
         "across folds throughout, so no reported difference is a fold artefact. Following IEEE "
@@ -872,8 +874,8 @@ def build(F):
         "behaviour carries {share_vle}% of the attribution against {share_asmt}% for "
         "assessment&#8212;take shapes a tutor can "
         "describe, reproduce across resamples, and decay through the term in a way any deployment "
-        "must plan for. The pipeline is released with the submission so that these claims can be checked and "
-        "corrected.", F)))
+        "must plan for. The pipeline and its stored results are public so that these claims "
+        "can be checked and corrected.", F)))
 
     # ------------------------------------------------------------------ refs
     add(("h1", "References"))

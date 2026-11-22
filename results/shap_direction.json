@@ -1,0 +1,74 @@
+[
+  {
+    "feature": "code_module",
+    "mean_abs": 0.4819895136201133,
+    "group": "Registration",
+    "corr": 0.005786789034217235
+  },
+  {
+    "feature": "vle_days_since_last",
+    "mean_abs": 0.4194823504146093,
+    "group": "VLE behaviour",
+    "corr": 0.9686312330400558
+  },
+  {
+    "feature": "asmt_mean_score",
+    "mean_abs": 0.30182748625097755,
+    "group": "Assessment",
+    "corr": -0.927905016691836
+  },
+  {
+    "feature": "highest_education",
+    "mean_abs": 0.24438277656019858,
+    "group": "Demographic",
+    "corr": 0.8274261410460398
+  },
+  {
+    "feature": "vle_active_weeks",
+    "mean_abs": 0.19237353395226853,
+    "group": "VLE behaviour",
+    "corr": 0.0
+  },
+  {
+    "feature": "asmt_wscore",
+    "mean_abs": 0.174257580162145,
+    "group": "Assessment",
+    "corr": -0.9082606590299306
+  },
+  {
+    "feature": "imd_band",
+    "mean_abs": 0.15791195724762236,
+    "group": "Demographic",
+    "corr": -0.9327588021424656
+  },
+  {
+    "feature": "asmt_mean_delay",
+    "mean_abs": 0.15302292107614285,
+    "group": "Assessment",
+    "corr": 0.5154690199416921
+  },
+  {
+    "feature": "wk_3",
+    "mean_abs": 0.14802290611660335,
+    "group": "VLE behaviour",
+    "corr": 0.0
+  },
+  {
+    "feature": "asmt_n_missed",
+    "mean_abs": 0.1473555751247153,
+    "group": "Assessment",
+    "corr": 0.0
+  },
+  {
+    "feature": "asmt_min_score",
+    "mean_abs": 0.13289086471438497,
+    "group": "Assessment",
+    "corr": -0.8876072606164851
+  },
+  {
+    "feature": "studied_credits",
+    "mean_abs": 0.13036255196308003,
+    "group": "Demographic",
+    "corr": 0.9012094490437412
+  }
+]

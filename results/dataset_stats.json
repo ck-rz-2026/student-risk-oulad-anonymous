@@ -1,0 +1,36 @@
+{
+  "registrations": 32593,
+  "unique_students": 28785,
+  "modules": 7,
+  "presentations": 22,
+  "vle_events": 10655280,
+  "vle_clicks": 39605099,
+  "vle_sites": 6364,
+  "activity_types": 20,
+  "assessments": 206,
+  "submissions": 173912,
+  "mean_presentation_length": 255.54545454545453,
+  "result_dist": {
+    "Pass": 0.37925321388028105,
+    "Withdrawn": 0.3116006504464149,
+    "Fail": 0.2163654772497162,
+    "Distinction": 0.09278065842358789
+  },
+  "gender_F": 0.4515693553830577,
+  "disability": 0.09707605927653178,
+  "age": {
+    "0-35": 0.7039548369281747,
+    "35-55": 0.2894179731844261,
+    "55<=": 0.0066271898873991346
+  },
+  "edu": {
+    "A Level or Equivalent": 0.4309207498542632,
+    "Lower Than A Level": 0.4037063173073973,
+    "HE Qualification": 0.1451231859601755,
+    "No Formal quals": 0.010646457828368055,
+    "Post Graduate Qualification": 0.009603289049795969
+  },
+  "prev_attempts_zero": 0.8719970545822723,
+  "mean_credits": 79.75869051636855,
+  "imd_missing": 0.03408707391157611
+}

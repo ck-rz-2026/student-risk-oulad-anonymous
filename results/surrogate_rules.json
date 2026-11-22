@@ -1,0 +1,79 @@
+{
+  "r2": 0.6268690242145485,
+  "agreement_10pct": 0.42367993127358633,
+  "rules": [
+    {
+      "conditions": [
+        "vle_active_weeks <= 2.50",
+        "vle_days_since_last <= 21.50",
+        "code_module <= 5.50"
+      ],
+      "value": 0.7226397785087586,
+      "n": 3574
+    },
+    {
+      "conditions": [
+        "vle_active_weeks <= 2.50",
+        "vle_days_since_last <= 21.50",
+        "code_module > 5.50"
+      ],
+      "value": 0.4095440371724433,
+      "n": 786
+    },
+    {
+      "conditions": [
+        "vle_active_weeks <= 2.50",
+        "vle_days_since_last > 21.50",
+        "code_module <= 5.50"
+      ],
+      "value": 0.9692361942452444,
+      "n": 4951
+    },
+    {
+      "conditions": [
+        "vle_active_weeks <= 2.50",
+        "vle_days_since_last > 21.50",
+        "code_module > 5.50"
+      ],
+      "value": 0.6540004945971704,
+      "n": 592
+    },
+    {
+      "conditions": [
+        "vle_active_weeks > 2.50",
+        "asmt_mean_score <= 70.25",
+        "asmt_n_due <= inf"
+      ],
+      "value": 0.6147888095562474,
+      "n": 7680
+    },
+    {
+      "conditions": [
+        "vle_active_weeks > 2.50",
+        "asmt_mean_score <= 70.25",
+        "asmt_n_due > inf"
+      ],
+      "value": 0.2907376304784085,
+      "n": 3351
+    },
+    {
+      "conditions": [
+        "vle_active_weeks > 2.50",
+        "asmt_mean_score > 70.25",
+        "vle_active_days <= 15.50"
+      ],
+      "value": 0.37421664207120303,
+      "n": 4695
+    },
+    {
+      "conditions": [
+        "vle_active_weeks > 2.50",
+        "asmt_mean_score > 70.25",
+        "vle_active_days > 15.50"
+      ],
+      "value": 0.2389847289414061,
+      "n": 6964
+    }
+  ],
+  "text": "|--- vle_active_weeks <= 2.50\n|   |--- vle_days_since_last <= 21.50\n|   |   |--- code_module <= 5.50\n|   |   |   |--- value: [0.72]\n|   |   |--- code_module >  5.50\n|   |   |   |--- value: [0.41]\n|   |--- vle_days_since_last >  21.50\n|   |   |--- code_module <= 5.50\n|   |   |   |--- value: [0.97]\n|   |   |--- code_module >  5.50\n|   |   |   |--- value: [0.65]\n|--- vle_active_weeks >  2.50\n|   |--- asmt_mean_score <= 70.25\n|   |   |--- asmt_n_due <= inf\n|   |   |   |--- value: [0.61]\n|   |   |--- asmt_n_due >  inf\n|   |   |   |--- value: [0.29]\n|   |--- asmt_mean_score >  70.25\n|   |   |--- vle_active_days <= 15.50\n|   |   |   |--- value: [0.37]\n|   |   |--- vle_active_days >  15.50\n|   |   |   |--- value: [0.24]\n"
+}

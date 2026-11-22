@@ -1,0 +1,62 @@
+{
+  "DecisionTree-LR": {
+    "mean": -0.03639789718290022,
+    "p_gt_0": 0.0
+  },
+  "DecisionTree-Spline-GAM": {
+    "mean": -0.041378177498334084,
+    "p_gt_0": 0.0
+  },
+  "DecisionTree-RandomForest": {
+    "mean": -0.039819467044094926,
+    "p_gt_0": 0.0
+  },
+  "DecisionTree-XGBoost": {
+    "mean": -0.04642406085014059,
+    "p_gt_0": 0.0
+  },
+  "DecisionTree-LightGBM": {
+    "mean": -0.04604224030548566,
+    "p_gt_0": 0.0
+  },
+  "LR-Spline-GAM": {
+    "mean": -0.004980280315433864,
+    "p_gt_0": 0.0
+  },
+  "LR-RandomForest": {
+    "mean": -0.003421569861194708,
+    "p_gt_0": 0.006
+  },
+  "LR-XGBoost": {
+    "mean": -0.010026163667240379,
+    "p_gt_0": 0.0
+  },
+  "LR-LightGBM": {
+    "mean": -0.00964434312258545,
+    "p_gt_0": 0.0
+  },
+  "Spline-GAM-XGBoost": {
+    "mean": -0.005045883351806515,
+    "p_gt_0": 0.0
+  },
+  "RandomForest-Spline-GAM": {
+    "mean": -0.0015587104542391557,
+    "p_gt_0": 0.066
+  },
+  "RandomForest-XGBoost": {
+    "mean": -0.00660459380604567,
+    "p_gt_0": 0.0
+  },
+  "LightGBM-Spline-GAM": {
+    "mean": 0.004664062807151585,
+    "p_gt_0": 1.0
+  },
+  "LightGBM-RandomForest": {
+    "mean": 0.006222773261390741,
+    "p_gt_0": 1.0
+  },
+  "LightGBM-XGBoost": {
+    "mean": -0.00038182054465492896,
+    "p_gt_0": 0.168
+  }
+}

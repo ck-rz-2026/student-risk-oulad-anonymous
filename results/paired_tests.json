@@ -1,0 +1,54 @@
+{
+  "n_boot": 2000,
+  "n_boot_used": 2000,
+  "tests": {
+    "Spline-GAM_minus_LightGBM": {
+      "delta_auc": -0.00467298580204023,
+      "ci95": [
+        -0.0062433599286156214,
+        -0.0030050458046069067
+      ],
+      "p_bootstrap": 0.0,
+      "frac_boot_positive": 0.0,
+      "significant": true,
+      "p_holm": 0.0,
+      "significant_holm": true
+    },
+    "DecisionTree_minus_Spline-GAM": {
+      "delta_auc": -0.041293749443804484,
+      "ci95": [
+        -0.044681347509502804,
+        -0.037764502048060714
+      ],
+      "p_bootstrap": 0.0,
+      "frac_boot_positive": 0.0,
+      "significant": true,
+      "p_holm": 0.0,
+      "significant_holm": true
+    },
+    "RandomForest_minus_LightGBM": {
+      "delta_auc": -0.0062375965589237525,
+      "ci95": [
+        -0.007825826521355713,
+        -0.0047204737142885825
+      ],
+      "p_bootstrap": 0.0,
+      "frac_boot_positive": 0.0,
+      "significant": true,
+      "p_holm": 0.0,
+      "significant_holm": true
+    },
+    "Spline-GAM_minus_XGBoost": {
+      "delta_auc": -0.005042837812132328,
+      "ci95": [
+        -0.006637291902304396,
+        -0.0034656934471560194
+      ],
+      "p_bootstrap": 0.0,
+      "frac_boot_positive": 0.0,
+      "significant": true,
+      "p_holm": 0.0,
+      "significant_holm": true
+    }
+  }
+}

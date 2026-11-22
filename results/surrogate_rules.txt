@@ -1,0 +1,24 @@
+R2=0.627  agreement(+-0.10)=0.424
+
+|--- vle_active_weeks <= 2.50
+|   |--- vle_days_since_last <= 21.50
+|   |   |--- code_module <= 5.50
+|   |   |   |--- value: [0.72]
+|   |   |--- code_module >  5.50
+|   |   |   |--- value: [0.41]
+|   |--- vle_days_since_last >  21.50
+|   |   |--- code_module <= 5.50
+|   |   |   |--- value: [0.97]
+|   |   |--- code_module >  5.50
+|   |   |   |--- value: [0.65]
+|--- vle_active_weeks >  2.50
+|   |--- asmt_mean_score <= 70.25
+|   |   |--- asmt_n_due <= inf
+|   |   |   |--- value: [0.61]
+|   |   |--- asmt_n_due >  inf
+|   |   |   |--- value: [0.29]
+|   |--- asmt_mean_score >  70.25
+|   |   |--- vle_active_days <= 15.50
+|   |   |   |--- value: [0.37]
+|   |   |--- vle_active_days >  15.50
+|   |   |   |--- value: [0.24]

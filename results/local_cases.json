@@ -1,0 +1,101 @@
+{
+  "withdrawn_high_risk": {
+    "row": 8868,
+    "p": 0.9990000999133601,
+    "y": 1,
+    "base_value": 0.5220932275298482,
+    "top_contrib": {
+      "vle_days_since_last": 1.0433410847938733,
+      "studied_credits": 0.48101249474736646,
+      "vle_active_weeks": 0.4290519436049086,
+      "code_module": 0.3797554736249844,
+      "asmt_mean_score": 0.3671513797766896,
+      "date_registration": 0.36215155712644814,
+      "asmt_wscore": 0.27165553290010985,
+      "wk_3": 0.2521299934890618
+    },
+    "values": {
+      "vle_days_since_last": 28.0,
+      "studied_credits": 180.0,
+      "vle_active_weeks": null,
+      "code_module": 2.0,
+      "asmt_mean_score": -1.0,
+      "date_registration": -157.0,
+      "asmt_wscore": -1.0,
+      "wk_3": null
+    },
+    "profile": {
+      "vle_clicks": 0.0,
+      "vle_active_days": 0.0,
+      "asmt_mean_score": -1.0,
+      "asmt_n_missed": NaN,
+      "vle_slope": NaN
+    }
+  },
+  "withdrawn_missed": {
+    "row": 18306,
+    "p": 0.349986943586468,
+    "y": 1,
+    "base_value": 0.5220932275298482,
+    "top_contrib": {
+      "code_module": 0.4707726482379815,
+      "vle_days_since_last": -0.4064235368822955,
+      "vle_active_days": -0.259088077326122,
+      "asmt_wscore": -0.2008862267168807,
+      "highest_education": -0.17842230871820472,
+      "asmt_n_missed": -0.1651995921179698,
+      "wk_3": -0.16011928545841383,
+      "vle_active_weeks": -0.1414566329127048
+    },
+    "values": {
+      "code_module": 3.0,
+      "vle_days_since_last": 1.0,
+      "vle_active_days": 33.0,
+      "asmt_wscore": 65.0,
+      "highest_education": 0.0,
+      "asmt_n_missed": 0.0,
+      "wk_3": 36.0,
+      "vle_active_weeks": 4.0
+    },
+    "profile": {
+      "vle_clicks": 331.0,
+      "vle_active_days": 33.0,
+      "asmt_mean_score": 65.0,
+      "asmt_n_missed": 0.0,
+      "vle_slope": -0.36405529953917054
+    }
+  },
+  "pass_borderline": {
+    "row": 12076,
+    "p": 0.4999669688811866,
+    "y": 0,
+    "base_value": 0.5220932275298482,
+    "top_contrib": {
+      "asmt_mean_score": -0.4840972464817191,
+      "highest_education": 0.3974685618071551,
+      "asmt_mean_delay": 0.289352837405793,
+      "asmt_wscore": -0.22329864201652097,
+      "code_module": 0.2061064407798253,
+      "asmt_max_score": -0.2010108073104911,
+      "imd_band": 0.1946867183017924,
+      "asmt_min_score": -0.18261469419565
+    },
+    "values": {
+      "asmt_mean_score": 89.0,
+      "highest_education": 2.0,
+      "asmt_mean_delay": 3.0,
+      "asmt_wscore": 89.0,
+      "code_module": 2.0,
+      "asmt_max_score": 89.0,
+      "imd_band": 2.0,
+      "asmt_min_score": 89.0
+    },
+    "profile": {
+      "vle_clicks": 245.0,
+      "vle_active_days": 13.0,
+      "asmt_mean_score": 89.0,
+      "asmt_n_missed": 0.0,
+      "vle_slope": -0.5840909090909091
+    }
+  }
+}

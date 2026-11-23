@@ -26,8 +26,8 @@ def build(F):
     add(("title_end",))
 
     abstract = (
-        "<b><i>Abstract</i></b>&#8212;Two assumptions govern student-risk modelling: that accuracy "
-        "must be bought with opacity, and that a model confined to a term's opening weeks cannot be "
+        "<b><i>Abstract</i></b>&#8212;Two assumptions govern student-risk modelling: accuracy "
+        "must be bought with opacity, and a model confined to a term's opening weeks cannot be "
         "trusted. We test both on the Open University Learning Analytics Dataset, "
         "with nothing beyond four weeks after a module opens&#8212;"
         "{n_reg} registrations, {n_vle} virtual-learning-environment (VLE) events and {n_sub} "
@@ -37,9 +37,9 @@ def build(F):
         "{gap_gam_gbdt} behind the ensemble and {gap_gam_best} behind the best of six. A depth-4 tree scores {auc_DecisionTree}, a further {diff_tree} back, and "
         "its shortfall is representational, not a depth effect. Risk is bimodal, not "
         "graded: {p_silent}% of registrations log no VLE activity at all in those four weeks "
-        "and {rate_silent}% of them fail or withdraw, so the top 20% of the score holds "
+        "and {rate_silent}% fail or withdraw, so the top 20% of the score holds "
         "{r20_LightGBM}% of at-risk registrations at {p20_LightGBM}% precision&#8212;excellent "
-        "by precision, yet it reaches barely a third of those the policy targets. "
+        "by precision, yet reaches barely a third of the policy target. "
         "Explanations are cutoff-specific, not unstable: TreeSHAP rankings hold across "
         "resamples (Spearman {stab_fold}) yet shift wholesale between cutoffs, because the two "
         "models resting on different evidence. Ranking is near "
@@ -381,8 +381,8 @@ def build(F):
         "unsuccessful outcomes and is separated almost perfectly by the model, which is what "
         "lifts the top quintile to {p20_LightGBM}% precision. The rest of the at-risk population "
         "sits in an uncertain middle where the score is genuinely probabilistic, and there "
-        "recall becomes expensive. A deployment that contacts only the certain cases will look "
-        "excellent on precision and will quietly miss two thirds of the students it was built "
+        "recall becomes expensive. A deployment that contacts only the certain cases looks "
+        "excellent on precision and misses two thirds of the students it was built "
         "for. The zero-click rule on its own therefore reaches {rate_silent}% precision at "
         "{share_atrisk_silent}% recall, and the fair question is what the model adds beyond it. "
         "Restricted to the 88.3% of registrations with any activity, AUC falls to 0.816 and the "
@@ -403,7 +403,10 @@ def build(F):
         "under-uses. ECE is computed with ten equal-width bins and quoted without an interval; "
         "because the score is bimodal, most of the mass falls in the two end bins, so a small "
         "ECE partly measures how few bins carry weight, which is why the subgroup reliability "
-        "diagram is read alongside it rather than trusted alone.", F)))
+        "diagram is read alongside it rather than trusted alone. The Brier score, which uses "
+        "no bins, orders the models the same way on these rows: 0.1558 for the reference "
+        "ensemble, 0.1584 for the additive model, 0.1594 for the uncalibrated forest and "
+        "0.1609 for logistic regression.", F)))
 
     add(("p", fmt(
         "A difference of a few tenths of an AUC point is routinely dismissed as noise, so we "
@@ -447,7 +450,8 @@ def build(F):
         "the model's performance: the ensemble's best learning rate ({sbestv_LightGBM}) yields "
         "{sbest_LightGBM} against {sdef_LightGBM} at the default, so the {gap_gam_gbdt}-point gap "
         "holds only when both sides sit at defaults on identical folds&#8212;a caveat we state "
-        "rather than bury.", F)))
+        "rather than bury. The grids are one-dimensional: pruning and minimum-leaf settings "
+        "stayed at their defaults and no joint search was run.", F)))
 
     add(("h2", "B. What Earliness Costs"))
     add(("p", fmt(
@@ -457,10 +461,9 @@ def build(F):
         "{pct_early}% of the improvement the term can supply arrives in its first month. That is "
         "the empirical case for warning early instead of grading late: waiting halves the "
         "signal.", F)))
-    add(("fig", "fig2_sweep.png", "<b>Fig. 1.</b> Out-of-fold AUC as a function of the cutoff "
-         "week, one grouped five-fold split per cutoff (the values tabulated in Table&#160;IV, "
-         "so no band is drawn). The marked cutoff is the "
-         "four-week operating point used throughout the paper.", 0.94))
+    add(("fig", "fig2_sweep.png", "<b>Fig. 1.</b> Out-of-fold AUC against the cutoff week, one "
+         "grouped five-fold split per cutoff (values as in Table&#160;IV). The marked point is "
+         "the four-week operating point.", 0.88))
     add(("p", fmt(
         "The same curves show how thin the separation between families is while the term is "
         "still young. At every cutoff LightGBM stays within {max_gap_points} AUC points of the "
@@ -542,9 +545,6 @@ def build(F):
         "of transplanting thresholds.", F)))
 
     add(("h2", "E. Subgroup Performance and Calibration"))
-    add(("fig", "fig7_fairness.png", "<b>Fig. 4.</b> Top: AUC within demographic subgroups at "
-         "week four. Bottom: reliability diagram of the ensemble on pooled out-of-fold "
-         "predictions.", 0.74))
     add(("p", fmt(
         "Fig.&#160;4 audits the ensemble over gender, declared disability, age band, deprivation "
         "band and module. Subgroup AUC runs from {fa_min} to {fa_max}, and inside the demographic "
@@ -568,6 +568,9 @@ def build(F):
         "the cut. The audit sits at 0.5 and not at the 80%-recall point of Section&#160;V-A "
         "because that point is defined over the whole cohort: applying it group by group would "
         "presuppose the per-group policy the audit is meant to test.", F)))
+    add(("fig", "fig7_fairness.png", "<b>Fig. 4.</b> Top: AUC within demographic subgroups at "
+         "week four. Bottom: reliability diagram of the ensemble on pooled out-of-fold "
+         "predictions.", 0.74))
     add(("p", fmt(
         "Two other subgroups warrant a word. Registrations missing deprivation data "
         "({imd_missing}% of all) rank worst ({auc_imd_na}), consistent with missingness itself "
@@ -586,7 +589,8 @@ def build(F):
     add(("h2", "F. Is the Gap in the Score or in the Cut?"))
     add(("fig", "fig15_fairness_mitigation.png", "<b>Fig. 5.</b> (a) False- and "
          "true-positive rates by declared disability before and after group-specific "
-         "thresholds. (b) Pooled recall as a common false-positive ceiling is enforced, "
+         "thresholds; bars are pooled estimates, per-split SD 1.4 points. "
+         "(b) Pooled recall as a common false-positive ceiling is enforced, "
          "either with one global threshold or with per-group thresholds.", 0.86))
     add(("p", fmt(
         "This test covers one cutoff and one attribute. What Fig.&#160;4 shows is a disparity in "
@@ -688,11 +692,13 @@ def build(F):
         "the mean assessment score ({shap_score}); prior education ({shap_edu}), active weeks "
         "({shap_aw}), the credit-weighted score and the deprivation band come next. The module "
         "identifier leads because courses differ widely in difficulty and in attrition, and the "
-        "model may legitimately exploit that prior; it is also the one feature that an unseen "
-        "course does not have, which is why transfer is measured separately in "
+        "model may legitimately exploit that prior; it is also absent from an unseen course, "
+        "which is why transfer is measured in "
         "Section&#160;V-D. The four blocks account for the whole ranking: the registration "
         "block supplies the remaining 13.9%, almost all of it through those same two "
-        "identifiers.", F)))
+        "identifiers. These shares are additive attributions and do not sum like AUC "
+        "increments; Section&#160;V-C reports the latter and the two are not "
+        "interchangeable.", F)))
     add(("p", fmt(
         "The shapes are monotone and pedagogically sensible. Risk climbs with the gap since the "
         "last click (rank correlation between feature value and SHAP value {corr_recency}), "
@@ -776,9 +782,6 @@ def build(F):
         "equally easy to caricature.", F)))
 
     add(("h2", "E. How Long an Explanation Lasts"))
-    add(("fig", "fig10_stability.png", "<b>Fig. 9.</b> Rank correlation of global feature "
-         "importance between cutoffs. Values near one indicate that the same features dominate "
-         "at both cutoffs.", 0.64))
     add(("p", fmt(
         "Resampling leaves explanations intact: across five independent resamples the mean "
         "Spearman correlation of global importance is {stab_fold}, with {stab_top10}% overlap "
@@ -789,6 +792,9 @@ def build(F):
         "that computes explanations once and caches them will explain last month's model to this "
         "month's tutor: explanations have a half-life and belong on the same refresh schedule as "
         "the model.", F)))
+    add(("fig", "fig10_stability.png", "<b>Fig. 9.</b> Rank correlation of global feature "
+         "importance between cutoffs. Values near one indicate that the same features dominate "
+         "at both cutoffs.", 0.64))
 
     add(("h2", "F. Explanations Are Not Interventions"))
     add(("p", fmt(
@@ -816,8 +822,8 @@ def build(F):
         "{gap_gam_best} of the strongest model tested while remaining inspectable line by line; "
         "keep the ensemble as a shadow model that flags when additivity starts to cost real "
         "accuracy; calibrate before thresholding and recalibrate per module and per demographic "
-        "group; and give advisors a ranked list with three reasons and a suggested action rather "
-        "than a bare number. At 80% recall the system flags {flag_LightGBM}% of the cohort; at a "
+        "group; and give advisors a ranked list with reasons rather than a bare number. At 80% "
+        "recall the system flags {flag_LightGBM}% of the cohort; at a "
         "nominal fifteen minutes per contact that is roughly 140 advisor hours per thousand "
         "registrations, against 50 for the top quintile, so the capacity question belongs before "
         "launch, not after.", F)))
@@ -829,16 +835,15 @@ def build(F):
         "generalises is the protocol and the qualitative findings. The label merges failure with "
         "withdrawal, two "
         "outcomes with different causes and different interventions, and the four-class variant "
-        "prices that merge. The demographic attributes are coarse and partly missing, and the "
-        "deprivation band is reported rather than measured, and the equalisation test covers one "
-        "cutoff and one attribute. Finally, all analyses are "
+        "prices that merge. The demographic attributes are coarse and partly missing; the "
+        "deprivation band is reported rather than measured; and the equalisation test covers "
+        "one cutoff and one attribute. Finally, all analyses are "
         "observational: we identify signals that predict, and stop deliberately short of "
         "asserting that changing them changes outcomes&#8212;a claim the what-if probe "
         "was built to discipline rather than support. Two checks we did not run would come "
-        "first in any deployment. We test generalisation to new students and to an unseen "
-        "course, but not to a new cohort in time&#8212;the release spans two years and we do "
-        "not train on one and test on the other&#8212;and we do not replicate on a second "
-        "institution, so the transfer we measure is across courses, not across settings.", F)))
+        "first in any deployment: generalisation to a new cohort in time, which the "
+        "two-year release would allow, and replication at a second institution, so the "
+        "transfer we measure is across courses, not settings.", F)))
     add(("h2", "C. Ethics"))
     add(("p", fmt(
         "OULAD is released under CC-BY 4.0 with k-anonymity and l-diversity applied [1], and no "
@@ -858,7 +863,7 @@ def build(F):
     add(("h2", "D. Reproducibility and AI-use Disclosure"))
     add(("p", fmt(
         "Every number here comes from the scripts and stored results, public at "
-        "<font size=\"7\">anonymous.4open.science/r/student-risk-oulad-anonymous-FC0C</font>: "
+        "<font size=\"7\"><link href=\"https://anonymous.4open.science/r/student-risk-oulad-anonymous-FC0C\" color=\"black\">anonymous.4open.science/r/student-risk-oulad-anonymous-FC0C</link></font>: "
         "feature construction, "
         "grouped cross-validation, the sweep, the ablation, transfer, fairness, the explanation "
         "diagnostics and the sensitivity analyses. Splits are seeded and learners are grouped "
@@ -973,4 +978,6 @@ def build(F):
         add(("ref", f"[{i}] {r}"))
 
     return B
+
+
 

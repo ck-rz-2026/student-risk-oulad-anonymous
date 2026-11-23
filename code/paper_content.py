@@ -349,7 +349,10 @@ def build(F):
         "ordering, not the fold composition. On the split that backs Section&#160;VI the same "
         "ensemble scores {auc_lgbm_split}, learner-cluster 95% CI {ci_lgbm_cluster}: that "
         "interval belongs to that split, whereas 0.845&#8211;0.854 describes the five folds of "
-        "one repetition. Both gaps are quoted, because the smaller alone would understate the "
+        "one repetition. That interval brackets the three-seed mean, so it is the one we "
+        "attach to the headline {auc_LightGBM} of Table&#160;II; the seed standard deviation "
+        "speaks only to the stability of the ordering. Both gaps are quoted, because the smaller "
+        "alone would understate the "
         "cost by a tenth of a point. Three observations follow.", F)))
     add(("p", fmt(
         "First, what interpretability costs at this task is small in absolute terms. Moving from "
@@ -371,7 +374,8 @@ def build(F):
         "conceals it.", F)))
     add(("p", fmt(
         "Why the two regimes diverge so sharply is a property of the score distribution, which "
-        "is strongly bimodal. A share of {p_silent}% of registrations ({n_silent} in all) logs "
+        "is strongly bimodal. Define the silent group as registrations with no VLE click at all "
+        "before the cutoff. A share of {p_silent}% of registrations ({n_silent} in all) logs "
         "no VLE click whatsoever in the first four weeks, and {rate_silent}% of those students "
         "fail or withdraw; that silent group alone supplies {share_atrisk_silent}% of all "
         "unsuccessful outcomes and is separated almost perfectly by the model, which is what "
@@ -411,7 +415,7 @@ def build(F):
         "that backs Section&#160;VI, its deltas differ in the second decimal from the three-seed "
         "means of Table&#160;II, and the interval belongs to that split rather than to an average "
         "over repeats. The reading is not that interpretable models match the ensembles but that "
-        "they trail them *reliably*&#8212;by {d_dt_gam} for the tree and {d_gam_lgbm} for the "
+        "they trail them <i>reliably</i>&#8212;by {d_dt_gam} for the tree and {d_gam_lgbm} for the "
         "additive model in that split. A third of a point is also less than one hyper-parameter "
         "choice moves the ensemble (2.7 points for LightGBM), so the significance is statistical "
         "rather than practical, and any such claim must record that both sides ran at default "
@@ -585,7 +589,8 @@ def build(F):
          "thresholds. (b) Pooled recall as a common false-positive ceiling is enforced, "
          "either with one global threshold or with per-group thresholds.", 0.86))
     add(("p", fmt(
-        "What Fig.&#160;4 shows is a disparity in the decision, not in the ranking. Can "
+        "This test covers one cutoff and one attribute. What Fig.&#160;4 shows is a disparity in "
+        "the decision, not in the ranking. Can "
         "post-processing remove it? Learners are split 50/50 into "
         "calibration and evaluation halves, per-group thresholds are estimated on the "
         "calibration half alone and applied to the other half, over five splits. This measures "
@@ -825,7 +830,8 @@ def build(F):
         "withdrawal, two "
         "outcomes with different causes and different interventions, and the four-class variant "
         "prices that merge. The demographic attributes are coarse and partly missing, and the "
-        "deprivation band is reported rather than measured. Finally, all analyses are "
+        "deprivation band is reported rather than measured, and the equalisation test covers one "
+        "cutoff and one attribute. Finally, all analyses are "
         "observational: we identify signals that predict, and stop deliberately short of "
         "asserting that changing them changes outcomes&#8212;a claim the what-if probe "
         "was built to discipline rather than support. Two checks we did not run would come "
@@ -967,3 +973,4 @@ def build(F):
         add(("ref", f"[{i}] {r}"))
 
     return B
+
